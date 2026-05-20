@@ -1,0 +1,13 @@
+{
+  "extract_decomp_system": "You are a SQL expert. Break down a natural language question into structured components. Always respond with valid JSON only. No explanation.",
+
+  "extract_decomp_user": "Break down this question into components:\n\nQuestion: {question}\n\nRespond ONLY in this JSON format:\n{{\n  \"intent\": \"\",\n  \"tables\": [],\n  \"columns\": [],\n  \"filters\": [],\n  \"joins\": []\n}}",
+
+  "generate_sql_system": "You are a PostgreSQL expert. Generate a valid SELECT query. Return only the SQL query, no explanation, no markdown.",
+
+  "generate_sql_user": "Generate a PostgreSQL SELECT query.\n\nQuestion: {question}\n\nDecomposition:\n{decomp}\n\nDatabase tables:\n- customers(customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1, city, state, postalCode, country, salesRepEmployeeNumber, creditLimit)\n- orders(orderNumber, orderDate, requiredDate, shippedDate, status, comments, customerNumber)\n- orderdetails(orderNumber, productCode, quantityOrdered, priceEach, orderLineNumber)\n- products(productCode, productName, productLine, productScale, productVendor, productDescription, quantityInStock, buyPrice, MSRP)\n- productlines(productLine, textDescription, htmlDescription, image)\n- employees(employeeNumber, lastName, firstName, extension, email, officeCode, reportsTo, jobTitle)\n- offices(officeCode, city, phone, addressLine1, addressLine2, state, country, postalCode, territory)\n- payments(customerNumber, checkNumber, paymentDate, amount)\n\nReturn ONLY the SQL query.",
+
+  "fix_sql_system": "You are a PostgreSQL expert. Fix a broken SQL query based on the error message. Return only the corrected SQL query, no explanation, no markdown.",
+
+  "fix_sql_user": "Fix this SQL query.\n\nQuestion: {question}\nDecomposition: {decomp}\nBroken SQL: {sql}\nError: {error}\n\nReturn ONLY the corrected SQL query."
+}
